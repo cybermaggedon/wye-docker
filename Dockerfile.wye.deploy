@@ -1,0 +1,24 @@
+
+FROM fedora:24
+
+ARG VERSION=none
+
+RUN dnf install -y tar
+RUN dnf install -y cppzmq-devel
+RUN dnf install -y findutils
+RUN dnf install -y net-tools
+RUN dnf install -y python python-zmq python-requests python-httplib2
+RUN pip install --upgrade google-api-python-client
+RUN pip install cassandra-driver
+
+COPY product/fedora-wye-${VERSION}-1.fc24.x86_64.rpm wye.rpm
+RUN dnf install -y wye.rpm
+
+RUN mkdir /wye
+
+WORKDIR /wye
+
+CMD wye-service
+
+EXPOSE 8080
+
