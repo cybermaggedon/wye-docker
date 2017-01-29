@@ -3,10 +3,10 @@ PACKAGE=wye
 VERSION=0.04
 GIT_VERSION=v0.04
 
-FEDORA_FILES =  RPM/RPMS/x86_64/${PACKAGE}-${VERSION}-1.fc24.x86_64.rpm
-FEDORA_FILES += RPM/RPMS/x86_64/${PACKAGE}-debuginfo-${VERSION}-1.fc24.x86_64.rpm
+FEDORA_FILES =  RPM/RPMS/x86_64/${PACKAGE}-${VERSION}-1.fc25.x86_64.rpm
+FEDORA_FILES += RPM/RPMS/x86_64/${PACKAGE}-debuginfo-${VERSION}-1.fc25.x86_64.rpm
 FEDORA_FILES += ${PACKAGE}-${VERSION}.tar.gz
-FEDORA_FILES += RPM/SRPMS/${PACKAGE}-${VERSION}-1.fc24.src.rpm
+FEDORA_FILES += RPM/SRPMS/${PACKAGE}-${VERSION}-1.fc25.src.rpm
 
 DEBIAN_FILES = ${PACKAGE}_${VERSION}-1_amd64.deb
 
@@ -48,7 +48,7 @@ fedora:
 	done; \
 	${SUDO} docker rm -f $${id}
 	mv -f product/fedora-${PACKAGE}-${VERSION}.tar.gz product/${PACKAGE}-${VERSION}.tar.gz
-	mv -f product/fedora-${PACKAGE}-${VERSION}-1.fc24.src.rpm product/${PACKAGE}-${VERSION}-1.src.rpm
+	mv -f product/fedora-${PACKAGE}-${VERSION}-1.fc25.src.rpm product/${PACKAGE}-${VERSION}-1.src.rpm
 
 ubuntu:
 	${SUDO} docker build ${BUILD_ARGS} -t ${PACKAGE}-ubuntu-dev \
